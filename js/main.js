@@ -1,7 +1,7 @@
 // =============================================
 // URL DE BASE DE L'API
 // =============================================
-const API = "http://localhost:3000/api/clients";
+const API = "/api/clients";
 
 // =============================================
 // MÉTRIQUES — met à jour les cartes de résumé
