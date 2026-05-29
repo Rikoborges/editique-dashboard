@@ -8,92 +8,169 @@
 </head>
 <body>
 
-  <!-- CABEÇALHO DA PÁGINA -->
   <header class="header">
-    <h1>Éditique Dashboard</h1>
-    <p>Gestion des envois · Publipostage · Événements</p>
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="header-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Éditique Dashboard</h1>
+          <p>Gestion des envois · Publipostage · Courrier postal</p>
+        </div>
+      </div>
+      <span class="header-badge">Demo</span>
+    </div>
   </header>
 
-  <!-- MÉTRICAS RESUMO -->
-  <section class="metrics">
-    <div class="metric-card">
-      <span class="metric-label">Clients total</span>
-      <span class="metric-value" id="m-total">0</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-label">Résultats filtrés</span>
-      <span class="metric-value" id="m-filter">0</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-label">SMS envoyés</span>
-      <span class="metric-value" id="m-sms">0</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-label">Mails envoyés</span>
-      <span class="metric-value" id="m-mail">0</span>
-    </div>
-  </section>
+  <main class="container">
 
-  <!-- FILTROS SQL -->
-  <section class="card" id="section-filtres">
-    <h2 class="card-title">Requête SQL</h2>
-    <div class="sql-bar">
-      <select id="f-ville">
-        <option value="">Toutes les villes</option>
-        <option>Valence</option>
-        <option>Lyon</option>
-        <option>Grenoble</option>
-        <option>Paris</option>
-      </select>
-      <select id="f-type">
-        <option value="">Tous les envois</option>
-        <option>SMS</option>
-        <option>Mail</option>
-        <option>Courrier</option>
-      </select>
-      <select id="f-statut">
-        <option value="">Tous les statuts</option>
-        <option>Envoyé</option>
-        <option>En attente</option>
-        <option>Erreur</option>
-      </select>
-      <button id="btn-executer">Exécuter</button>
-    </div>
-    <!-- QUERY SQL QUE APARECE EM TEMPO REAL -->
-    <div class="sql-preview" id="sql-preview">
-      SELECT * FROM clients WHERE 1=1
-    </div>
-  </section>
+    <!-- MÉTRIQUES RÉSUMÉ -->
+    <section class="metrics">
+      <div class="metric-card">
+        <div class="metric-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <span class="metric-label">Clients total</span>
+        <span class="metric-value" id="m-total">0</span>
+      </div>
+      <div class="metric-card metric-violet">
+        <div class="metric-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+          </svg>
+        </div>
+        <span class="metric-label">Résultats filtrés</span>
+        <span class="metric-value" id="m-filter">0</span>
+      </div>
+      <div class="metric-card metric-vert">
+        <div class="metric-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <span class="metric-label">SMS envoyés</span>
+        <span class="metric-value" id="m-sms">0</span>
+      </div>
+      <div class="metric-card metric-ambre">
+        <div class="metric-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <span class="metric-label">Mails envoyés</span>
+        <span class="metric-value" id="m-mail">0</span>
+      </div>
+    </section>
 
-  <!-- TABELA DE CLIENTES -->
-  <section class="card" id="section-clients">
-    <h2 class="card-title">Clients</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Ville</th>
-          <th>Type d'envoi</th>
-          <th>Statut</th>
-          <th>Maquette</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-        <!-- LINHAS GERADAS PELO JS -->
-      </tbody>
-    </table>
-    <p class="count" id="count"></p>
-  </section>
+    <!-- FILTRES SQL -->
+    <section class="card" id="section-filtres">
+      <h2 class="card-title">
+        <svg class="title-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        Requête SQL
+      </h2>
+      <div class="sql-bar">
+        <select id="f-ville">
+          <option value="">Toutes les villes</option>
+          <option>Valence</option>
+          <option>Lyon</option>
+          <option>Grenoble</option>
+          <option>Paris</option>
+        </select>
+        <select id="f-type">
+          <option value="">Tous les envois</option>
+          <option>SMS</option>
+          <option>Mail</option>
+          <option>Courrier</option>
+        </select>
+        <select id="f-statut">
+          <option value="">Tous les statuts</option>
+          <option>Envoyé</option>
+          <option>En attente</option>
+          <option>Erreur</option>
+        </select>
+        <button id="btn-executer">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Exécuter
+        </button>
+      </div>
+      <div class="sql-preview" id="sql-preview">
+        SELECT * FROM clients WHERE 1=1
+      </div>
+    </section>
 
-  <!-- LOG DE EVENTOS -->
-  <section class="card" id="section-log">
-    <h2 class="card-title">Log d'événements</h2>
-    <div id="log-container">
-      <!-- EVENTOS GERADOS PELO JS -->
+    <!-- TABLEAU CLIENTS -->
+    <section class="card" id="section-clients">
+      <h2 class="card-title">
+        <svg class="title-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+        </svg>
+        Clients
+      </h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Ville</th>
+              <th>Type d'envoi</th>
+              <th>Statut</th>
+              <th>Maquette</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <p class="count" id="count"></p>
+    </section>
+
+    <!-- LOG D'ÉVÉNEMENTS -->
+    <section class="card" id="section-log">
+      <h2 class="card-title">
+        <svg class="title-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Log d'événements
+      </h2>
+      <div id="log-container"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">Éditique Dashboard</span>
+      <div class="footer-stack">
+        <span class="stack-badge">Node.js</span>
+        <span class="stack-badge">Express</span>
+        <span class="stack-badge">PostgreSQL</span>
+        <span class="stack-badge">Vanilla JS</span>
+        <span class="stack-badge">REST API</span>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- MODAL DA MAQUETTE -->
+  <!-- MODAL MAQUETTE -->
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <h3 id="modal-title">Maquette</h3>
