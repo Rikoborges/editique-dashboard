@@ -1,39 +1,21 @@
-# Éditique Dashboard
+---
 
-Interface de gestion des envois éditiques — publipostage, SMS, mails et courriers.
+## API — Routes disponibles
 
-## Stack technique
+| Méthode | Route | Description |
+|---|---|---|
+| GET | `/api/clients` | Récupère tous les clients |
+| GET | `/api/clients?ville=Valence` | Filtre par ville |
+| GET | `/api/clients?type_envoi=SMS` | Filtre par type d'envoi |
+| GET | `/api/clients?statut=Envoyé` | Filtre par statut |
+| GET | `/api/clients/:id` | Récupère un client par ID |
+| POST | `/api/clients` | Crée un nouveau client |
+| PUT | `/api/clients/:id` | Met à jour le statut |
+| DELETE | `/api/clients/:id` | Supprime un client |
 
-- HTML / CSS / JavaScript (vanilla)
-- Node.js + Express
-- SQLite (better-sqlite3)
-- API REST (GET, POST, PUT, DELETE)
+---
 
-## Fonctionnalités
+## Auteur
 
-- Filtres dynamiques avec requête SQL en temps réel
-- Tableau de clients connecté à une base SQLite
-- Maquettes de documents personnalisées (SMS, Mail, Courrier)
-- Log d'événements d'envoi
-- Interface responsive — mobile et desktop
-
-## Lancer le projet
-
-```bash
-npm install
-node server/server.js
-```
-
-Ouvrir ensuite : http://localhost:3000
-
-## Structure
-
-```
-editique-dashboard/
-├── index.html
-├── css/style.css
-├── js/main.js
-└── server/
-    ├── server.js
-    └── database.js
-```
+**Ricardo Borges** — Développeur Full Stack en formation  
+[github.com/Rikoborges](https://github.com/Rikoborges) · [linkedin.com/in/ricardoduarteborges](https://linkedin.com/in/ricardoduarteborges)
