@@ -43,11 +43,24 @@ Simuler un environnement de production éditique bancaire avec :
     git clone https://github.com/Rikoborges/editique-dashboard.git
     cd editique-dashboard
     npm install
+
+Créer un fichier `.env` à la racine :
+
+    DATABASE_URL=postgresql://user:password@host/neondb?sslmode=require
+
+Démarrer le serveur :
+
     node server/server.js
 
-Ouvrir ensuite dans le navigateur : http://localhost:3000
+Ouvrir ensuite : http://localhost:3000
 
-La base de données SQLite est créée automatiquement au premier lancement.
+---
+
+## Base de données
+
+Projet connecté à **PostgreSQL** hébergé sur [Neon](https://neon.tech).  
+La table `clients` est créée et peuplée automatiquement au premier lancement.  
+Aucune installation locale de base de données requise.
 
 ---
 
