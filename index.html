@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Éditique Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO DA PÁGINA -->
+  <header class="header">
+    <h1>Éditique Dashboard</h1>
+    <p>Gestion des envois · Publipostage · Événements</p>
+  </header>
+
+  <!-- MÉTRICAS RESUMO -->
+  <section class="metrics">
+    <div class="metric-card">
+      <span class="metric-label">Clients total</span>
+      <span class="metric-value" id="m-total">0</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Résultats filtrés</span>
+      <span class="metric-value" id="m-filter">0</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">SMS envoyés</span>
+      <span class="metric-value" id="m-sms">0</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Mails envoyés</span>
+      <span class="metric-value" id="m-mail">0</span>
+    </div>
+  </section>
+
+  <!-- FILTROS SQL -->
+  <section class="card" id="section-filtres">
+    <h2 class="card-title">Requête SQL</h2>
+    <div class="sql-bar">
+      <select id="f-ville">
+        <option value="">Toutes les villes</option>
+        <option>Valence</option>
+        <option>Lyon</option>
+        <option>Grenoble</option>
+        <option>Paris</option>
+      </select>
+      <select id="f-type">
+        <option value="">Tous les envois</option>
+        <option>SMS</option>
+        <option>Mail</option>
+        <option>Courrier</option>
+      </select>
+      <select id="f-statut">
+        <option value="">Tous les statuts</option>
+        <option>Envoyé</option>
+        <option>En attente</option>
+        <option>Erreur</option>
+      </select>
+      <button id="btn-executer">Exécuter</button>
+    </div>
+    <!-- QUERY SQL QUE APARECE EM TEMPO REAL -->
+    <div class="sql-preview" id="sql-preview">
+      SELECT * FROM clients WHERE 1=1
+    </div>
+  </section>
+
+  <!-- TABELA DE CLIENTES -->
+  <section class="card" id="section-clients">
+    <h2 class="card-title">Clients</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Ville</th>
+          <th>Type d'envoi</th>
+          <th>Statut</th>
+          <th>Maquette</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <!-- LINHAS GERADAS PELO JS -->
+      </tbody>
+    </table>
+    <p class="count" id="count"></p>
+  </section>
+
+  <!-- LOG DE EVENTOS -->
+  <section class="card" id="section-log">
+    <h2 class="card-title">Log d'événements</h2>
+    <div id="log-container">
+      <!-- EVENTOS GERADOS PELO JS -->
+    </div>
+  </section>
+
+  <!-- MODAL DA MAQUETTE -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h3 id="modal-title">Maquette</h3>
+      <p id="modal-body"></p>
+      <button id="modal-close">Fermer</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
